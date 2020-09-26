@@ -62,7 +62,57 @@ function Typography({
       {...props}
     >
       {children}
+      {/* <p> Sample</p> */}
     </TypographyBase>
+  );
+  // return (
+  //   <form>
+  //   <h1>Hello Abdullah </h1>
+  //   <p>Enter your name:</p>
+  //   <input
+  //     type='text'
+  //     name='username'
+      
+  //   />
+  //   <p>Enter your age:</p>
+  //   <input
+  //     type='text'
+  //     name='age'
+      
+  //   />
+  //   </form>
+  // );
+}
+
+function AddPortalForm(){
+  return (
+    <form>
+    <h1>Hello User </h1>
+    <p>Enter your portal login credential:</p>
+    <input
+      type='text'
+      name='username'
+      
+    />
+    <p>Enter your password:</p>
+    <input
+      type='text'
+      name='age'
+      
+    />
+    <label for="cars">Portals:</label>
+  <select id="cars" name="cars">
+    <option value="volvo">SmartRecruiter</option>
+    <option value="saab">Workday</option>
+    <option value="fiat">Greenhouse</option>
+    
+  </select>
+    
+    <input class="favorite styled"
+       type="button"
+       value="Add a new portal" />
+
+    </form>
   );
 }
 
@@ -119,7 +169,7 @@ function Button({ children, color, className, ...props }) {
   );
 }
 
-export { Badge, Typography, Button };
+export { Badge, Typography, Button, AddPortalForm };
 
 // ########################################################################
 
