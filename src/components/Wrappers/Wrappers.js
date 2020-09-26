@@ -7,6 +7,7 @@ import {
 } from "@material-ui/core";
 import { useTheme, makeStyles } from "@material-ui/styles";
 import classnames from "classnames";
+import { Edit } from "@material-ui/icons";
 
 // styles
 var useStyles = makeStyles(theme => ({
@@ -84,32 +85,97 @@ function Typography({
   // );
 }
 
+
+const initialstate = {
+  username: '',
+  cars: '',
+  password: '',
+  }
+  var state = initialstate;
+
+function onChange(e) {
+  // if (e.target.id === 'username') {
+  //     state[username] = e.target.value);
+  // } else if (e.target.id === 'cars') {
+  //     this.setState({ portal: e.target.value });
+  // } else if (e.target.id === 'password') {
+  //     this.setState({ password: e.target.value });
+  // }
+}
+function createBlogPost(data) {
+  return fetch("http://127.0.0.1:5000/vaccine/register", {
+      method: 'POST',
+      body: JSON.stringify(data),
+      // body:data,
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  })
+  .then(response => response.json())
+  .then(response => {
+      if (response.status >= 200 && response.status < 300) {
+          return response;
+          console.log(response);
+          window.location.reload();
+        } else {
+         console.log('Somthing happened wrong');
+        }
+  }).catch(err => err);
+  // console.log(data[0]);
+  }
+function handleSubmit (event) {
+  // console.log(event);
+  // console.log(event.target[0]);
+  // console.log(event.taget[0]);
+  // console.log({"name":event.target[0].name,"password":event.target[0].password, "portal":event.target[0].cars});
+  // alert(event.target[0]);
+  
+  createBlogPost({"name":event.target[0].value,"password":event.target[1].value, "portal":event.target[2].value});
+  //http://127.0.0.1:5000/vaccine/register POST
+//   const text = {
+//     news_title: this.state.title,
+//     news_description: this.state.desc,
+//     news_type: this.state.type
+// }
+  // alert('A name was submitted: ' + this.state.value);
+  // event.preventDefault();
+}
 function AddPortalForm(){
+  
   return (
-    <form>
-    <h1>Hello User </h1>
-    <p>Enter your portal login credential:</p>
-    <input
-      type='text'
-      name='username'
-      
-    />
-    <p>Enter your password:</p>
-    <input
-      type='text'
-      name='age'
-      
-    />
-    <label for="cars">Portals:</label>
-  <select id="cars" name="cars">
+    <form onSubmit= {handleSubmit} >
+      <div>
+    <p><label htmlFor="cars">Portals:</label></p>
+  <select id="cars" onChange={onChange} name="cars">
     <option value="volvo">SmartRecruiter</option>
     <option value="saab">Workday</option>
     <option value="fiat">Greenhouse</option>
     
   </select>
+
+    </div>
+    <p>Enter your portal login credential:</p>
+    <input
+      type='text'
+      name='username'
+      id='username'
+      onChange={onChange}
+    />
+    <p>Enter your password:</p>
+    <div>
+    <input
+      type='password'
+      name='age'
+      id='password'
+      onChange={onChange}
+    />
+    </div>
     
-    <input class="favorite styled"
-       type="button"
+    <p></p>
+    <p></p>
+    
+    <input
+       type="submit"
        value="Add a new portal" />
 
     </form>

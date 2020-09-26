@@ -7,12 +7,13 @@ import {
 import {
   Home as HomeIcon,
   NotificationsNone as NotificationsIcon,
-  FormatSize as TypographyIcon,
+  Edit as TypographyIcon,
   FilterNone as UIElementsIcon,
   BorderAll as TableIcon,
   QuestionAnswer as SupportIcon,
   LibraryBooks as LibraryIcon,
   HelpOutline as FAQIcon,
+  Edit as EditIcon,
   ArrowBack as ArrowBackIcon,
 } from "@material-ui/icons";
 import classNames from 'classnames';
@@ -22,7 +23,7 @@ import Dot from './components/Dot';
 
 const structure = [
   { id: 0, label: 'Dashboard', link: '/app/dashboard', icon: <HomeIcon /> },
-  { id: 1, label: 'Typography', link: '/app/typography', icon: <TypographyIcon /> },
+  { id: 1, label: 'Add New Portal', link: '/app/typography', icon: <TypographyIcon /> },
   { id: 2, label: 'Tables', link: '/app/tables', icon: <TableIcon /> },
   { id: 3, label: 'Notifications', link: '/app/notifications', icon: <NotificationsIcon />},
   {
